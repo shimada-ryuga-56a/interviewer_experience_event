@@ -28,3 +28,10 @@ function getMembers() {
 
   Logger.log(rooms.join("\n"));
 }
+
+function setMemberOptions(){
+  const feedbackFormId = '1HQInx4x88Za_tn2ghHVej9sB-pDovcQNF5Rpu3HBxzA';
+  const membersInfoSheetId = '12PIQT57for32SwLgyU1Y8eYp2YGE_jPbk8zt8TewPRw';
+  const feedbackForm = FormApp.openById(feedbackFormId);
+  const membersInfoSheet = SpreadsheetApp.openById(membersInfoSheetId).getActiveSheet();
+}
