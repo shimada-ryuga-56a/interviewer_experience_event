@@ -19,6 +19,16 @@ function getMembers() {
 
   membersShuffle(members);
 
-  // 結果をログに出力
-  Logger.log(members);
+  const rooms = [];
+
+  for (let i = 0; i < members.length; i += 2) {
+    const pair = members.slice(i, i + 2);
+    if (members.length % 2 !== 0 && i + 2 >= members.length) {
+      rooms[rooms.length - 1] += `＆${pair[0]}`;
+    } else {
+      rooms.push(`部屋${(i / 2) + 1}：${pair.join('＆')}`);
+    }
+  }
+
+  Logger.log(rooms);
 }
