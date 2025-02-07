@@ -35,5 +35,11 @@ function roomDefinition() {
 function setMemberOptions(){
   const feedbackFormId = '1HQInx4x88Za_tn2ghHVej9sB-pDovcQNF5Rpu3HBxzA';
   const feedbackForm = FormApp.openById(feedbackFormId);
-  console.log(`form: ${feedbackForm.getTitle()}`);
+  members = extractMembers();
+
+  const items = feedbackForm.getItems();
+  const question1 = items[0];
+  const question2 = items[1];
+  question1.asMultipleChoiceItem().setChoiceValues(members);
+  question2.asMultipleChoiceItem().setChoiceValues(members);
 }
