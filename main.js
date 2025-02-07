@@ -20,6 +20,14 @@ function updatingFormChoices(question, choices) {
   question.asMultipleChoiceItem().setChoiceValues(choices);
 }
 
+// 配列の各要素にindexを付す
+function addingIndexToArray(arr) {
+  result = arr.map(function(a, index) {
+    return (index + 1) + "：" + a
+  })
+  return result;
+}
+
 function roomDefinition() {
   members = extractMembers();
   membersShuffle(members);
@@ -41,6 +49,7 @@ function setMemberOptions(){
   const feedbackFormId = '1HQInx4x88Za_tn2ghHVej9sB-pDovcQNF5Rpu3HBxzA';
   const feedbackForm = FormApp.openById(feedbackFormId);
   members = extractMembers();
+  members = addingIndexToArray(members);
 
   const items = feedbackForm.getItems();
   const question1 = items[0];
