@@ -15,6 +15,11 @@ function membersShuffle(members) {
   members.sort(() => Math.random() - 0.5);
 }
 
+// フォームの選択肢を更新
+function updatingFormChoices(question, choices) {
+  question.asMultipleChoiceItem().setChoiceValues(choices);
+}
+
 function roomDefinition() {
   members = extractMembers();
   membersShuffle(members);
@@ -40,6 +45,6 @@ function setMemberOptions(){
   const items = feedbackForm.getItems();
   const question1 = items[0];
   const question2 = items[1];
-  question1.asMultipleChoiceItem().setChoiceValues(members);
-  question2.asMultipleChoiceItem().setChoiceValues(members);
+  updatingFormChoices(question1, members)
+  updatingFormChoices(question2, members)
 }
