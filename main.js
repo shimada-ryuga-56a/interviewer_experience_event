@@ -30,5 +30,5 @@ function getMembers() {
     }
   }
 
-  Logger.log(rooms);
+  Logger.log(rooms.join("\n"));
 }
