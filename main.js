@@ -1,3 +1,8 @@
+// メンバーのシャッフル処理
+function membersShuffle(members) {
+  members.sort(() => Math.random() - 0.5);
+}
+
 function getMembers() {
   // スプレッドシートのIDを指定
   const spreadsheetId = '12PIQT57for32SwLgyU1Y8eYp2YGE_jPbk8zt8TewPRw'; // ここにスプレッドシートIDを入力
@@ -12,9 +17,8 @@ function getMembers() {
     return row[0];
   });
 
-  const rooms = ['room1', 'room2']
+  membersShuffle(members);
 
   // 結果をログに出力
   Logger.log(members);
-  Logger.log(rooms);
 }
